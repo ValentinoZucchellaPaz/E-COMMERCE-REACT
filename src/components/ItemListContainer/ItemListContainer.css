@@ -1,0 +1,14 @@
+.ItemListContainer {
+    height: calc(100vh - 70px);
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+h1, h4{
+    margin: 0 0 0 50px;
+    text-transform: uppercase;
+}
