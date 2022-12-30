@@ -1,0 +1,71 @@
+.ItemCounter-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr 0.8fr;
+    grid-template-areas: 1fr;
+    grid-template-areas: 
+    'title . counter onAdd';
+    gap: 5px;
+    margin: 50px 0;
+}
+
+.ItemCounter-container h2 {
+    grid-area: title;
+    margin: 0;
+}
+.counter-container {
+    grid-area: counter;
+}
+.on-add{
+    grid-area: onAdd;
+}
+
+.ItemCounter-container h2 p {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.8);
+    font-style: italic;
+}
+
+.counter-container{
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.counter-container button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .25s;
+}
+.counter-container button:hover {
+    text-shadow: 0 0 1px;
+    font-weight: bolder;
+}
+
+.on-add {
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .25s;
+}
+.on-add:hover {
+    background-color: #7A26C1;
+}
+
+@media screen and (max-width: 700px){
+    .ItemCounter-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: 
+        'title title' 
+        'counter onAdd';
+    }
+
+}

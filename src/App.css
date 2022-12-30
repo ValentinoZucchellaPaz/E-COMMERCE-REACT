@@ -13,4 +13,30 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
+  transition: all .25s;
+}
+
+/* navbar responsive */
+.fa-bars {
+  display: none !important;
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .App-header{
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 80px 50px;
+    overflow: hidden;
+  }
+  .fa-bars{
+    display: block !important;
+  }
+  .show-nav{
+    height: 220px;
+  }
 }
