@@ -1,11 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 35px;
-}
-
 .App-header {
   background-color: #282c34;
   height: 70px;
@@ -37,6 +29,6 @@
     display: block !important;
   }
   .show-nav{
-    height: 220px;
+    height: 220px !important;
   }
 }

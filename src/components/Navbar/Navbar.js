@@ -1,11 +1,11 @@
-import './Navbar.css'
+import NavbarLink from './NavbarLink'
 
 const Navbar = () => {
     return (
-        <nav className='Navbar-container'>
-            <a href='#' className='Navbar-link'>Productos</a>
-            <a href='#' className='Navbar-link'>Artes Marciales</a>
-            <a href='#' className='Navbar-link'>Nosotros</a>
+        <nav className='flex flex-col md:flex-row justify-evenly items-center'>
+            <NavbarLink>Productos</NavbarLink>
+            <NavbarLink>Artes Marciales</NavbarLink>
+            <NavbarLink>Nosotros</NavbarLink>
         </nav>
     )
 }
