@@ -1,9 +1,11 @@
-const CardWidget = () =>{
+import { Button } from "../../services/StyledComponents"
+const CardWidget = ({children, border, textColor}) =>{
+
     return (
-        <div className='flex flex-row justify-evenly items-center h-10 w-12 border-solid border-[1px] border-opacity-40 border-white rounded-lg text-white cursor-pointer transition-all hover:border-[#7A26C1]'>
-            <span>0</span>
+        <Button border={border} textColor={textColor}>
+            {children}
             <i className="fa-solid fa-cart-shopping"></i>
-        </div>
+        </Button>
     )
 }
 export default CardWidget

@@ -1,31 +1,42 @@
-import { useState } from 'react'
-import './ItemCounter.css'
+import { useState } from "react"
+import Swal from 'sweetalert2'
+import { Container, Title } from "../../services/StyledComponents"
+import CardWidget from "../CartWidget/CardWidget"
 
-const ItemCounter = ({ productName, stock, onAdd }) => {
+const ItemCounter = () => {
 
     const [counter, setCounter] = useState(0)
 
     const increment = () =>{
-        counter < stock && setCounter(counter+1)
+        setCounter(counter+1)
     }
     const decrement = () =>{
         counter > 0 && setCounter(counter-1)
     }
+
     const handleOnAdd = () => {
-        counter >= 1 && onAdd(counter)
+        if(counter >= 1) {
+            Swal.fire({
+                title: `agregado al carrito (x${counter})`,
+                toast:true,
+                position: 'top-end',
+                timer: 2000,
+                timerProgressBar: true,
+                confirmButtonColor: '#7A26C1'
+            })
+        }
+        setCounter(0)
     }
 
     return (
-        <div className='ItemCounter-container '>
-            <h2 className=''>{productName} <p className='m-0 text-xs text-gray-800 italic'>solo {stock} en stock</p></h2>
-            <div className=' border-solid border-[1px] rounded-lg border-black border-opacity-40 mx-0 my-1 flex justify-between items-center p-1'>
-                <button className='transparent border-none text-xl transition-all hover:font-semibold' onClick={decrement}>-</button>
+        <Container width='12rem' height='auto' flexDirection='row' border='1px solid rgba(0,0,0,0.4)' padding='10px'>
+            <Container width='40%' height='auto' flexDirection='row' border='1px solid rgba(0,0,0,0.4)' padding='4px'>
+                <Title cursor={true} onClick={decrement}>-</Title>
                 <span>{counter}</span>
-                <button className='transparent border-none text-xl transition-all hover:font-semibold' onClick={increment}>+</button>
-            </div>
-            <button className='my-1 mx-0 border-none rounded-lg bg-transparent uppercase cursor-pointer transition-all hover:bg-[#7A26C1] active:translate-y-[2px]' onClick={() => handleOnAdd()}>Agregar <i className="fa-solid fa-cart-shopping"></i></button>
-        </div>
-
+                <Title cursor={true} onClick={increment}>+</Title>
+            </Container>
+            <p onClick={()=>handleOnAdd()}><CardWidget border={false} textColor={'black'}></CardWidget></p>
+        </Container>
     )
 }
 
