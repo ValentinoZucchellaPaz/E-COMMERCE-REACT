@@ -5,16 +5,7 @@ import ArtesMarciales from './pages/ArtesMarciales.js';
 import Productos from './pages/Productos.js';
 import Nosotros from './pages/Nosotros.js';
 
-
-
-
-
-
-
 function App() {
-
-  
-
   return (
     <MainContainer>
       <Navbar />
@@ -25,8 +16,6 @@ function App() {
         <Route path='/nosotros' element={<Nosotros />}/>
       </Routes>
     </MainContainer>
-
-
   );
 }
 
