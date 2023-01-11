@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Title, Subtitle } from "../services/StyledComponents";
 import { Link } from "react-router-dom";
-import ItemCard from "../components/ItemCard/ItemCard";
+import Item from "../components/Item/Item";
 import ItemList from "../components/ItemList/ItemList";
 import Spinner from "../components/ItemListContainer/assets/Spinner";
 import { getMartialArts } from "../services/asyncMock";
@@ -44,9 +44,9 @@ const ArtesMarciales = () => {
       <ItemList>
         {
           martialArts.map(martialArt=> {
-            return <ItemCard key={martialArt.id} img={martialArt.img} name={martialArt.name}>
+            return <Item key={martialArt.id} img={martialArt.img} name={martialArt.name}>
               <Subtitle>{martialArt.description}</Subtitle>
-            </ItemCard>
+            </Item>
           })
         }
       </ItemList>

@@ -21,6 +21,7 @@
   width: 2rem;
   height: 2px;
   background-color: white;
+  pointer-events: none;
 }
 .active:hover::after{
   background-color: #7A26C1;

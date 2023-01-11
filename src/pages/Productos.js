@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { getProducts } from "../services/asyncMock"
 import ItemList from "../components/ItemList/ItemList"
-import ItemCard from "../components/ItemCard/ItemCard"
+import Item from "../components/Item/Item"
 import Spinner from "../components/ItemListContainer/assets/Spinner"
 import { Container, Title, Subtitle } from "../services/StyledComponents"
 
@@ -44,10 +44,10 @@ const Productos = ({children}) => {
         <ItemList>
                 {
                     products.map(prod => {
-                        return <ItemCard key={prod.id} {...prod}>
+                        return <Item key={prod.id} {...prod}>
                             <Subtitle>solo {prod.stock} en stock</Subtitle>
                             <Title>${prod.price}</Title>
-                        </ItemCard>
+                        </Item>
                     })
                 }
         </ItemList>
