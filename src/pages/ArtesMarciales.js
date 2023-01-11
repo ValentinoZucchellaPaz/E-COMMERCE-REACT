@@ -24,14 +24,14 @@ const ArtesMarciales = () => {
 
   if(loading) {
     return (
-        <Container>
+        <Container height='calc(100vh - 70px)'>
             <Spinner />
         </Container>
     )
   }
   if(error) {
       return (
-          <Container>
+          <Container height='calc(100vh - 70px)'>
               <Title>404</Title>
               <Title>Hubo un error, intenta de nuevo mas tarde</Title>
           </Container>
