@@ -1,21 +1,19 @@
 import Navbar from './components/Navbar/Navbar.js';
-import { MainContainer } from './services/StyledComponents.js';
 import { Routes, Route } from 'react-router-dom';
-import ArtesMarciales from './pages/ArtesMarciales.js';
-import Productos from './pages/Productos.js';
-import Nosotros from './pages/Nosotros.js';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.js';
+import './App.css'
 
 function App() {
   return (
-    <MainContainer>
-      <Navbar />
-      
+    <div className='MainContainer'>
+      <Navbar/>
       <Routes>
-        <Route path='/' element={<Productos />}/>
-        <Route path='/artes-marciales' element={<ArtesMarciales />}/>
-        <Route path='/nosotros' element={<Nosotros />}/>
+        <Route path='/' element={<ItemListContainer />} />
+        <Route path='/category/:categoryId' element={<ItemListContainer />} />
+        <Route path='/item/:productId' element={<ItemDetailContainer />} />
       </Routes>
-    </MainContainer>
+    </div>
   );
 }
 

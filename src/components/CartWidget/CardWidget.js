@@ -1,11 +1,11 @@
-import { Button } from "../../services/StyledComponents"
-const CardWidget = ({children, border, textColor}) =>{
-
+import './CardWidget.css'
+const CardWidget = ({children, color}) =>{
+    const variant = color ? 'CardWidget CardWidget-white' : 'CardWidget';
     return (
-        <Button border={border} textColor={textColor}>
+        <button className={variant}>
             {children}
             <i className="fa-solid fa-cart-shopping"></i>
-        </Button>
+        </button>
     )
 }
 export default CardWidget

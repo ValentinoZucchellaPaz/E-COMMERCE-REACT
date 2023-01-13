@@ -1,59 +1,60 @@
-import { getProducts } from '../../services/asyncMock'
+import { getProducts, getProductsByCategory } from '../../asyncMock'
 import { useEffect, useState } from 'react'
-import ItemCard from '../ItemCard/ItemCard'
-import './../../index.css'
-import { Container, Title, Subtitle } from '../../services/StyledComponents'
-import Spinner from './assets/Spinner'
+import { useParams } from 'react-router-dom'
 import ItemList from '../ItemList/ItemList'
+import Item from '../Item/Item'
+import Spinner from '../Spinner/Spinner'
+import './../../index.css'
+import './ItemListContainer.css'
 
-const ItemListContainer = ({ greeting, children }) => {
+const ItemListContainer = ({  children }) => {
 
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
+    const {categoryId} = useParams()
+
+
+    const asynFunction = categoryId ? getProductsByCategory : getProducts;
 
     useEffect (()=>{
-        getProducts()
-            .then(productsFromAPI=>{
-                setProducts(productsFromAPI)
-            })
+        setLoading(true)
+        asynFunction(categoryId)
+            .then(productsFromAPI=> setProducts(productsFromAPI))
             .catch(error => setError(true))
             .finally(()=> setLoading(false))
-    }, [])
-
+    }, [categoryId])
 
     if(loading) {
         return (
-            <Container>
+            <div className='Container'>
                 <Spinner />
-            </Container>
+            </div>
         )
     }
     if(error) {
         return (
-            <Container>
-                <Title>404</Title>
-                <Title>Hubo un error, intenta de nuevo mas tarde</Title>
-            </Container>
+            <div className='Container'>
+                <h2 className='Title-primary'>404</h2>
+                <h2 className='Title'>Hubo un error, intenta de nuevo mas tarde</h2>
+            </div>
         )
     }
-    
-    return (
-        <Container>
-            <Title primary={true}>{greeting}</Title>
-            <ItemList>
-                    {
-                        products.map(prod => {
-                            return <ItemCard key={prod.id} {...prod}>
-                                <Subtitle>solo {prod.stock} en stock</Subtitle>
-                                <Title>${prod.price}</Title>
-                            </ItemCard>
-                        })
-                    }
-            </ItemList>
-            {children /**counter display*/}
-        </Container>
-    )
+  
+
+  return (
+    <div className='Container'>
+        <h2 className='Title-primary'>Nuestros Productos</h2>
+        <ItemList>
+            {
+                products.map(prod => {
+                    return <Item key={prod.id} {...prod} />
+                })
+            }
+        </ItemList>
+        {children}
+    </div>
+  )
 }
 export default ItemListContainer

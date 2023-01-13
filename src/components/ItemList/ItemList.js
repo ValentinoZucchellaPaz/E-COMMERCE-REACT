@@ -1,10 +1,9 @@
-import { ProductsContainer } from "../../services/StyledComponents"
-
+import './ItemList.css'
 const ItemList = ({ children }) => {
     return (
-        <ProductsContainer>
+        <div className="Product-container">
             {children}
-        </ProductsContainer>
+        </div>
     )
 }
 export default ItemList

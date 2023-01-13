@@ -1,18 +1,26 @@
-import '../../index.css'
-import { CardImage, CardContainer, Title } from '../../services/StyledComponents'
+import './Item.css'
+import { Link } from 'react-router-dom'
 
-const ItemCard = ({ name, img, children }) => {
+const Item = ({ name, img, stock, price, description, id }) => {
 
     return (
-        <CardContainer>
-            <CardImage src={img} alt='product-img' />
-            <Title capitalize={true}>
-                {name} 
-            </Title>
-            {children}
-           
-        </CardContainer>
+        <div className='Card-container'>
+            <Link className='CardImage-container' to={`/item/${id}`}>
+                <img className='CardImage' src={img} alt={name} title={description} />
+            </Link>
+            <div className='CardContent-container'>
+                <Link to={`/item/${id}`}>
+                    <h2 className='Title-capitalize'>
+                        {name} 
+                    </h2>
+                </Link>
+                <p className='Subtitle'>solo {stock} en stock</p>
+                <Link to={`/item/${id}`}>
+                    <h2 className='Title-primary' >${price}</h2>
+                </Link>
+            </div>
+        </div>
     )
 }
 
-export default ItemCard
+export default Item

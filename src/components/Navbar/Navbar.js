@@ -1,9 +1,11 @@
 import CardWidget from "../CartWidget/CardWidget"
-import './../../index.css'
-import { Header, Logo, Nav, NavbarLink } from "../../services/StyledComponents"
-import { NavLink } from "react-router-dom"
+import './Navbar.css'
+import { NavLink, useNavigate } from "react-router-dom"
+import logo from './assets/fistkicks-low-resolution-logo-color-on-transparent-background.png'
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
 
     // navbar responsive 
     const toggleNav = () =>{
@@ -12,16 +14,18 @@ const Navbar = () => {
 
 
     return (
-        <Header >
-            <Logo src='./images/fistkicks-low-resolution-logo-color-on-transparent-background.png' alt="logo" />
+        <header className="Header">
+            {/* <Link to='/'></Link> */}
+            <img onClick={()=>navigate('/')} className="Logo" src={logo} alt="logo" />
             <i className="fa-solid fa-bars" onClick={toggleNav}></i>
-            <Nav>
-                <NavLink to='/'><NavbarLink>Productos</NavbarLink></NavLink>
-                <NavLink to='/artes-marciales'><NavbarLink>Artes Marciales</NavbarLink></NavLink>
-                <NavLink to='/nosotros'><NavbarLink>Nosotros</NavbarLink></NavLink>
-            </Nav>
-            <CardWidget border={true} textColor={'white'}>0</CardWidget>
-        </Header>
+            <nav className="Nav">
+                <NavLink className='NavbarLink' to='/'>All</NavLink>
+                <NavLink className='NavbarLink' to='/category/ropa'>Ropa</NavLink>
+                <NavLink className='NavbarLink' to='/category/guantes'>Guantes</NavLink>
+                <NavLink className='NavbarLink' to='/category/combate'>Combate</NavLink>
+            </nav>
+            <CardWidget color='white'>0</CardWidget>
+        </header>
     )
 }
 export default Navbar

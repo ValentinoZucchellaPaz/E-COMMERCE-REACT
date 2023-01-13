@@ -1,0 +1,25 @@
+.CardWidget {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40px;
+    min-width: 3rem;
+    margin: 4px auto;
+    padding: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .25s;
+    color: black;
+}
+.CardWidget:hover {
+    border-color: transparent;
+    background-color: #7A26C1;
+}
+
+.CardWidget:active {
+    transform: translateY(2px);
+}
+.CardWidget-white{
+    color: white;
+    border: 1px solid gray;
+}

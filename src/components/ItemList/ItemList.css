@@ -1,0 +1,10 @@
+.Product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    gap: 1rem;
+    margin: 1rem auto;
+}
