@@ -1,5 +1,5 @@
 .Header {
-    background-color: #282c34;
+    background-color: #282c34 ;
     height: 70px;
     display: grid;
     grid-template-columns: 1fr;
@@ -39,6 +39,7 @@
     position: relative;
     color: #7A26C1 !important;
 }
+
 .active::after {
     position: absolute;
     content: '';
@@ -84,7 +85,7 @@
         transform: translateX(-50%);
         width: 2rem;
         height: 2px;
-        border-radius: none;
+        border-radius: 0;
     }
     .fa-bars{
         display: none;

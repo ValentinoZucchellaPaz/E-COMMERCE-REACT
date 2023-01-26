@@ -1,11 +1,18 @@
+import { Button } from '@chakra-ui/react';
 import './CardWidget.css'
-const CardWidget = ({children, color}) =>{
-    const variant = color ? 'CardWidget CardWidget-white' : 'CardWidget';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
+const CardWidget = ({color, total}) =>{
+    const variant = color ? 'white' : '';
+    const {totalQuantity} = useContext(CartContext)
+    const prodQuantity = total ? totalQuantity : ''
     return (
-        <button className={variant}>
-            {children}
-            <i className="fa-solid fa-cart-shopping"></i>
-        </button>
+        <Button variant='outline' _active={{transform:'translateY(2px)'}} className={variant}
+        colorScheme='purple'>
+            {prodQuantity}
+            <i className={`fa-solid fa-cart-shopping`}></i>
+        </Button>
     )
 }
 export default CardWidget
