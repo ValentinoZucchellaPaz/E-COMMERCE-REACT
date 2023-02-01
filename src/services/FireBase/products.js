@@ -15,7 +15,7 @@ export function getProducts (categoryId) {
                 })
                 resolve(productsAdapted)
             })
-            .catch(err=> reject(err))
+            .catch( err=> reject(err) )
     })
 }
 

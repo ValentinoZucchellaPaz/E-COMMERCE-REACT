@@ -58,7 +58,7 @@ export default function Checkout () {
                             cleanCart()
                         })
 
-                        toast({
+                        return toast({
                             title: 'Orden agregada',
                             description: 'Tú orden se agregó exitosamente, en 48hs hábiles nos comunicaremos',
                             status: 'success',
@@ -67,7 +67,7 @@ export default function Checkout () {
                             position:'top-right'
                         })
                     } else {
-                        toast({
+                        return toast({
                             title: 'Ya no tenemos!',
                             description: `Productos fuera de stock:${outOfStock.map(prod=> ` ${prod.name} (stock: ${prod.stock}, cantidad: ${prod.quantity})`)
                             }`,
@@ -198,7 +198,7 @@ export default function Checkout () {
                         </Text>)
                 }
 
-                <Heading size='lg'>Total: {total}</Heading>
+                <Heading size='lg'>Total: ${total}</Heading>
 
             </Stack>
             <ButtonGroup justifyContent='center'>

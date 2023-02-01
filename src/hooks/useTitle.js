@@ -9,5 +9,5 @@ export default function useTitle (title = '', dependencies = []) {
 
     useEffect(()=>{
         document.title = title
-    }, dependencies)
+    }, dependencies) //eslint-disable-line
 }

@@ -18,7 +18,7 @@ export default function useProducts (asyncFunction, dependencies = []) {
             .then ( data => setData(data) )
             .catch( err => setError(true) )
             .finally( ()=> setLoading(false) )
-    }, dependencies)
+    }, dependencies) //eslint-disable-line
 
     return {data, loading, error}
 }

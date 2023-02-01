@@ -3,7 +3,6 @@ import ItemList from '../../components/ItemList/ItemList'
 import Spinner from '../../components/Spinner/Spinner'
 import useAsync from '../../hooks/useAsync'
 import { Heading, Stack } from '@chakra-ui/react'
-import { useEffect } from 'react'
 import { getProducts } from '../../services/FireBase/products'
 import useTitle from '../../hooks/useTitle'
 

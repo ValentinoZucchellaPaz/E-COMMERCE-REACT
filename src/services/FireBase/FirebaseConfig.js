@@ -7,12 +7,12 @@ import { getFirestore } from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCEhigB3cYE8YmVc9wUZ9PM07mNv40Zd8w",
-  authDomain: "fist-and-kicks.firebaseapp.com",
-  projectId: "fist-and-kicks",
-  storageBucket: "fist-and-kicks.appspot.com",
-  messagingSenderId: "852488682262",
-  appId: "1:852488682262:web:df912b69732f8626092e37"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase

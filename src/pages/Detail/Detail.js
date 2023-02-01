@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom"
-import { useEffect } from "react"
 import Spinner from "../../components/Spinner/Spinner"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import useAsync from "../../hooks/useAsync"

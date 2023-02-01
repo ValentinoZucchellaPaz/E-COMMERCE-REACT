@@ -22,7 +22,7 @@ export default function Contact () {
                 })
                 setMartialArts(martialArtsAdapted)
             })
-    }, [db])
+    }, [])
 
 
     return(
