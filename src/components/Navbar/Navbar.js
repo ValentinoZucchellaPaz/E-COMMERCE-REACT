@@ -2,7 +2,7 @@ import CardWidget from "../CartWidget/CardWidget"
 import './Navbar.css'
 import { NavLink, useNavigate, Link } from "react-router-dom"
 import logo from './assets/fistkicks-low-resolution-logo-color-on-transparent-background.png'
-import { useCallback, useContext, useRef } from "react"
+import { useCallback, useRef } from "react"
 import {
     Menu,
     MenuButton,
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <NavLink className='NavbarLink' to='/'>Productos</NavLink>
 
                 <Menu >
-                    <MenuButton className='NavbarLink' bg='transparent' _hover={{bg:'transparent'}} _active={{bg:'transparent'}} as={Button} rightIcon={<ChevronDownIcon />}>
+                    <MenuButton className='NavbarLink' bg='transparent' h='fit-content' lineHeight='1.5' p='0' _hover={{bg:'transparent'}} _active={{bg:'transparent'}} as={Button} rightIcon={<ChevronDownIcon/>}>
                         Categorías
                     </MenuButton>
                     <MenuList bg={'#282c34'} border={'1px solid #4d515a'} boxShadow={'lg'}>
@@ -41,6 +41,7 @@ const Navbar = () => {
                 </Menu>
 
                 <NavLink className='NavbarLink' to='/cart'>Carrito</NavLink>
+                <NavLink className='NavbarLink' to='/contact'>Contacto</NavLink>
             </nav>
             <Link to='/cart'>
                 <CardWidget color='white' total={true}/>

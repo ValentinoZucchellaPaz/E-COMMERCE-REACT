@@ -1,0 +1,31 @@
+.MartialArts-container {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+    align-items: center;
+    place-content: center;
+    height: auto;
+    width: 100%;
+    gap: 1rem;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+@media screen and (min-width: 30em) {
+    .MartialArts-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .MartialArts-container{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 4rem;
+    }
+}
+@media screen and (min-width: 62em) {
+    .MartialArts-container{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 0 8rem;
+    }
+}

@@ -1,8 +1,7 @@
 import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import CardWidget from "../CartWidget/CardWidget"
-import '../ItemCounter/ItemCounter.css'
-import { useToast } from "@chakra-ui/react"
+import { Center, useToast } from "@chakra-ui/react"
 import {
     NumberInput,
     NumberInputField,
@@ -16,7 +15,7 @@ const ItemCounter = ({ name, stock, id, price, img }) => {
     const toast = useToast()
 
     const [counter, setCounter] = useState(0)
-    const {addToCart, isInCart, addQuantity} = useContext(CartContext)
+    const {addToCart, isInCart} = useContext(CartContext)
 
     const increment = (e) =>{
         e.preventDefault()
@@ -28,7 +27,6 @@ const ItemCounter = ({ name, stock, id, price, img }) => {
     }
 
     const handleOnAdd = () => {
-        // ? console.log(`${name} agregado al carrito (${counter})`) : console.log(`${name} ya esta agregado al carrito`);
         if (counter > 0 ) {
             !isInCart(id) 
             ? toast({
@@ -53,17 +51,9 @@ const ItemCounter = ({ name, stock, id, price, img }) => {
             setCounter(0)
         }
     }
-    const handleInput = (value) => {
-        setCounter(value)
-    }
 
     return (
-        <div className="Counter-container">
-            {/* <div className="CounterContent-container">
-                <button className="decrement" onClick={decrement}>-</button>
-                <span>{counter}</span>
-                <button className="increment" onClick={increment}>+</button>
-            </div> */}
+        <Center gap='5px' p='10px' >
             <NumberInput  defaultValue={counter} value={counter} min={0} max={stock} w={'80px'}>
                 <NumberInputField value={counter}/>
                 <NumberInputStepper>
@@ -72,7 +62,7 @@ const ItemCounter = ({ name, stock, id, price, img }) => {
                 </NumberInputStepper>
             </NumberInput>
             <p onClick={handleOnAdd}><CardWidget></CardWidget></p>
-        </div>
+        </Center>
     )
 }
 
