@@ -9,21 +9,45 @@ import {
   Input,
   Text,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 
 export default function CheckoutForm({ createOrder }) {
+  const toast = useToast();
   const nameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
-    createOrder({
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-      phone: phoneRef.current.value,
-    });
+    const condition =
+      nameRef.current.value !== "" &&
+      emailRef.current.value !== "" &&
+      phoneRef.current.value !== "" &&
+      true;
+
+    // console.log(
+    //   condition,
+    //   nameRef.current.value,
+    //   emailRef.current.value,
+    //   phoneRef.current.value
+    // );
+
+    condition
+      ? createOrder({
+          name: nameRef.current.value,
+          email: emailRef.current.value,
+          phone: phoneRef.current.value,
+        })
+      : toast({
+          title: "Debes llenar tus datos",
+          description: "Asegurate de completarlos correctamente",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+          position: "top-right",
+        });
   }
   return (
     <div className="w-[90vw] sm:w-3/4 md:w-1/2 pb-10">
